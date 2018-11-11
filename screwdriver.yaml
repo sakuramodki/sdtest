@@ -1,0 +1,13 @@
+jobs:
+    main:
+        image: node:6
+        requires: [~pr, ~commit]
+        steps:
+          - install: npm install
+          - test: npm test
+          - echo: echo $FOO
+        environment:
+           FOO: bar
+        secrets:
+          - NPM_TOKEN
+
